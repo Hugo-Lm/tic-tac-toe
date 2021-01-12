@@ -1,0 +1,25 @@
+<div class="container text-center">
+  <div class="header-game">
+    <h1>Let's play</h1>
+    <%= link_to "Reload game", game_path(@game), method: :delete, class:"btn-reload m-1 btn btn-primary" %>
+  </div>
+
+  <div class="row">
+  <% @moves.each do |move| %>
+    <%= link_to game_move_path(@game, move), method: :patch do %>
+      <div class="col-4 game-case">
+        <div class="played-sign">
+          <%= move.played %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div class="victory-count mt-4">
+    <h2> Your stats : <%= current_user.games.where(result: true).count %>/<%= current_user.games.count %> </h2>
+  </div>
+
+</div>
+
+
