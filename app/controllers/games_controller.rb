@@ -1,9 +1,5 @@
 class GamesController < ApplicationController
     def show
-
-
-
-
         if Game.count == 0 || Game.last.result != nil
           @game = Game.create!(user: current_user)
           count = 1
@@ -27,6 +23,7 @@ class GamesController < ApplicationController
       redirect_to root_path
     end
 
+    private
 
     def areAllCasesPlayed?(moves)
       return moves.where(played: nil).count == 0

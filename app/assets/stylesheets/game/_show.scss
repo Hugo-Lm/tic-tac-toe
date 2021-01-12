@@ -1,5 +1,5 @@
 body, h1, h2 {
-  font-family: $my-font !important;
+  font-family: $my-font;
 }
 
 .game-case {
@@ -39,6 +39,4 @@ body, h1, h2 {
 .header-game {
   display:flex;
   justify-content: space-between;
-  .btn-reload {
-  }
 }
