@@ -4,16 +4,20 @@
     <%= link_to "Reload game", game_path(@game), method: :delete, class:"btn-reload m-1 btn btn-primary" %>
   </div>
 
-  <div class="row">
-  <% @moves.each do |move| %>
-    <%= link_to game_move_path(@game, move), method: :patch do %>
-      <div class="col-4 game-case">
-        <div class="played-sign">
-          <%= move.played %>
-        </div>
-      </div>
-    <% end %>
+  <% if @end_game == true  %>
+    <h2> It's a draw ! </h2>
   <% end %>
+
+  <div class="row">
+    <% @moves.each do |move| %>
+      <%= link_to game_move_path(@game, move), method: :patch do %>
+        <div class="game-case">
+          <div class="played-sign">
+            <%= move.played %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="victory-count mt-4">

@@ -17,7 +17,7 @@ class GamesController < ApplicationController
           @moves = Move.where(game: @game)
         end
 
-        # @result = isThereAWinner?(@game, @moves)
+        @end_game = areAllCasesPlayed?(@moves)
     end
 
 
@@ -28,11 +28,9 @@ class GamesController < ApplicationController
     end
 
 
-    # def isThereAWinner(game, moves)
-
-    #   if
-
-    # end
+    def areAllCasesPlayed?(moves)
+      return moves.where(played: nil).count == 0
+    end
 end
 
 
